@@ -1,0 +1,13 @@
+{
+    "package.json": ["npx npm-sort", "git add"],
+    "public/**/*.{html,json}": ["prettier --write", "git add"],
+    "src/**/*.{json,md}": ["prettier --write", "git add"],
+    "src/**/*.{css,scss}": ["stylelint --", "prettier --write", "git add"],
+    "src/**/*.{tsx,ts}": [
+        "npm run tslintAndFix --",
+        "npm run build",
+        "npm run test -- --bail --findRelatedTests",
+        "prettier --write",
+        "git add"
+    ]
+}
